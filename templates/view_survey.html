@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+    <h3>{{descr}}</h3>
+
+    <form action="/s/{{id}}/submit" method="post" class="fill_survey">
+        {% for q in questions %}
+            {% if q['qtype'] == 'RADIO' %}
+                <div class="survey_field">
+                    <p>{{q['title']}}</p>
+                    {% for opt in q['radio_options'] %}
+                        <input type="radio" id="q{{q['id']}}_{{loop.index}}" value="{{opt}}" name="{{q['id']}}">
+                        <label for="q{{q['id']}}_{{loop.index}}">{{opt}}
+                        </label><br>
+                    {% endfor %}
+                </div>
+            {% elif q['qtype'] == 'INTEGER' %}
+                <div class="survey_field">
+                    <label for="q{{q['id']}}">{{q['title']}}</label>
+                    <input type="number" id="q{{q['id']}}" name="{{q['id']}}"
+                    {% if q['integer_lb'] != None %}
+                        min="{{q['integer_lb']}}"
+                    {% endif %}
+                    {% if q['integer_ub'] != None %}
+                        max="{{q['integer_ub']}}"
+                    {% endif %}
+                    >
+                </div>
+            {% elif q['qtype'] == 'STRING' %}
+                <div class="survey_field">
+                    <label for="q{{q['id']}}">{{q['title']}}</label>
+                    <input type="text" id="q{{q['id']}}" name="{{q['id']}}">
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <br/>
+        <input type="submit" value="Submit Answer">
+    </form>
+{% endblock %}

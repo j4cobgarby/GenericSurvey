@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create Survey
+{% endblock %}
+
+{% block content %}
+    <script>
+        var position = 0;
+
+        function add_radio() {
+            fields = document.getElementById("fields");
+
+            new_heading = document.createElement("h3");
+            new_heading.innerHTML = "Radio field:";
+            fields.appendChild(new_heading);
+
+            type = document.createElement("input");
+            type.name = "type" + position;
+            type.type = "hidden";
+            type.value = "RADIO";
+            fields.appendChild(type);
+
+            new_name = document.createElement("input");
+            new_name.name = "inp" + position + "title";
+            new_name.type = "text";
+            new_name.placeholder = "What is the question?";
+            fields.appendChild(new_name)
+
+            new_options = document.createElement("input");
+            new_options.name = "inp" + position + "options";
+            new_options.type = "text";
+            new_options.style.width = "90%";
+            new_options.placeholder = "What are the possible answers?";
+            fields.appendChild(new_options);
+
+            fields.appendChild(document.createElement("br"));
+            fields.appendChild(document.createTextNode("The possible answers should be a semi-colon separated list, like Apple;Banana;Carrot"));
+
+            position++;
+        }
+
+        function add_integer() {
+            fields = document.getElementById("fields");
+
+            new_heading = document.createElement("h3");
+            new_heading.innerHTML = "Number field:";
+            fields.appendChild(new_heading);
+
+            type = document.createElement("input");
+            type.name = "type" + position;
+            type.value = "INTEGER";
+            type.type = "hidden";
+            fields.appendChild(type);
+            
+            new_name = document.createElement("input");
+            new_name.name = "inp" + position + "title";
+            new_name.type = "text";
+            new_name.placeholder = "What is the question?";
+            fields.appendChild(new_name)
+
+            new_lb = document.createElement("input");
+            new_lb.name = "inp" + position + "lb";
+            new_lb.type = "number";
+            new_lb.placeholder = "At least";
+            fields.appendChild(new_lb);
+
+            new_ub = document.createElement("input");
+            new_ub.name = "inp" + position + "ub";
+            new_ub.type = "number";
+            new_ub.placeholder = "At most";
+            fields.appendChild(new_ub);
+
+            fields.appendChild(document.createElement("br"));
+            fields.appendChild(document.createTextNode("You can leave either bound empty if you don't want to enforce it."));
+
+            position++;
+        }
+
+        function add_string() {
+            fields = document.getElementById("fields");
+
+            type = document.createElement("input");
+            type.name = "type" + position;
+            type.value = "STRING";
+            type.type = "hidden";
+            fields.appendChild(type);
+
+            new_heading = document.createElement("h3");
+            new_heading.innerHTML = "Text field:";
+            fields.appendChild(new_heading);
+
+            new_name = document.createElement("input");
+            new_name.name = "inp" + position + "title";
+            new_name.type = "text";
+            new_name.placeholder = "What is the question?";
+            fields.appendChild(new_name)
+
+            position++;
+        }
+    </script>
+
+    <h1>Creating New Survey</h1>
+
+    <p>Get started by using the buttons below to add new questions to the survey!</p>
+
+    <form action="" method="post" name="form_mksurvey" class="make_survey">
+        <label for="survey_title">Survey Title</label><br>
+        <input type="text" name="survey_title" id="survey_title">
+        <input type="hidden" name="num_questions" id="num_questions">
+        <br>
+        <label for="survey_descr">Description</label><br>
+        <textarea name="survey_descr" id="survey_descr" cols="40" rows="5" placeholder="E.g. Who is running the survey? What will the results be used for? How long will the survey run for? Are the results anonymous?"></textarea>
+        <br>
+        <button type="button" onclick="add_radio()">Add radio field</button>
+        <button type="button" onclick="add_integer()">Add number field</button>
+        <button type="button" onclick="add_string()">Add text field</button>
+        <fieldset id="fields" name="custom fields" form="form_mksurvey">
+            <!-- Populated by script -->
+        </fieldset>
+        <hr>
+        <button type="submit" 
+            onclick="document.getElementById('num_questions').value = position;">
+            Done!
+        </button>
+    </form>
+{% endblock %}

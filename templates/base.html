@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <title>{% block title %}{% endblock %} - Chalmers Surveys</title>
+</head>
+<body>
+    <nav>
+        <h1>Chalmers Surveys</h1>
+        <a href="/">Available Surveys</a>
+        -
+        {% if session['is_admin'] %}
+            <a href="/admin">Admin Panel</a>
+        {% else %}
+            <a href="/login">Admin Login</a>
+        {% endif %}
+    </nav>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+    <section class="content">
+        {% block content %}{% endblock %}
+    </section>
+</body>
+</html>

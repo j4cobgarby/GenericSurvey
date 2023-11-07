@@ -1,0 +1,117 @@
+body {
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    background-color: lightblue;
+    padding: 20px;
+}
+
+nav h1{
+    margin: 0;
+    font-family: serif;
+}
+
+nav a {
+    font-style: italic;
+}
+
+section.content {
+    padding: 20px;
+    display: block;
+    max-width: 700px;
+    min-width: 400px;
+    overflow: scroll;
+
+    margin: auto;
+    margin-top: 20px;
+
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+form.fill_survey {
+    background-color: lightblue;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+form.make_survey {
+    background-color: lightblue;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+input {
+    margin: 5px;
+}
+
+div.survey_field {
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+div.survey_field p {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+div.survey_field label {
+    margin-right: 20px;
+}
+
+input[type=text], input[type=number] {
+    border: 1.5px solid gray;
+    border-radius: 3px;
+    box-shadow: none;
+}
+
+input[type=submit] {
+    background-color: white;
+    border-radius: 10px;
+    border-style: none;
+    color: blue;
+
+    width: 50%;
+    display: block;
+    margin: auto;
+    padding: 15px;
+    font-size: larger;
+}
+
+input[type=submit]:hover {
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+fieldset {
+    margin: 10px;
+    background-color: white;
+}
+
+fieldset input[type=number] {
+    width: 80px;
+}
+
+button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 2px solid black;
+    margin: 0px;
+    padding: 10px;
+}
+
+th {
+    background-color: lightblue;
+}

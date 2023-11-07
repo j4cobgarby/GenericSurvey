@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Results for {{survey_info.title}}
+{% endblock %}
+
+{% block content %}
+
+<h1>'{{survey_info.title}}' Results</h1>
+<h3>Description: <i>'{{survey_info.descr}}'</i></h3>
+<a href="/download/{{survey_info.id}}">Click to view results as JSON (Hint: Right click and "Save Link As" to easily download the results as a JSON file)</a>
+
+<hr>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            {% for q in questions %}
+                <th>{{q['title']}}</th>
+            {% endfor %}
+        </tr>
+        {% for response in response_data %}
+        <tr>
+            <th>{{response}}</th>
+            {% for q in questions %}
+                <td>{{response_data[response][q['id']]}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

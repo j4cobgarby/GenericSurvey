@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create Survey
+{% endblock %}
+
+{% block content %}
+    <h1>Results</h1>
+    <p>Select the survey whose results you want to view.</p>
+
+    <ul>
+        {% for s in surveys %}
+            <li><a href="/results/{{s['id']}}">{{s['title']}}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
