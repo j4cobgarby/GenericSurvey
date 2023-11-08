@@ -6,7 +6,7 @@
 
 {% block content %}
     <h1>{{title}}</h1>
-    <h3>{{descr}}</h3>
+    <p>{{descr}}</p>
 
     <form action="/s/{{id}}/submit" method="post" class="fill_survey">
         {% for q in questions %}
@@ -40,6 +40,6 @@
         {% endfor %}
 
         <br/>
-        <input type="submit" value="Submit Answer">
+        <input type="submit" value="Submit Anonymously" class="submit_answers">
     </form>
 {% endblock %}

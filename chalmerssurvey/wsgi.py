@@ -58,10 +58,13 @@ def init_database():
 @app.cli.command("set_password")
 def set_password():
     pw_plain = getpass("Pick new administrator password: ")
+    if (getpass("Confirm password: ") != pw_plain):
+        print("Passwords did not match. Aborting.")
+        return
 
     with open("passwd", "w") as pw_file:
         pw_file.write(generate_password_hash(pw_plain))
-        print("Written hash to 'passwd'")
+        print("Written hash to file 'passwd'.")
 
 
 @app.route("/")

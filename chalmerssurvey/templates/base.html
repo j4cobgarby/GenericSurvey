@@ -2,6 +2,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
     <title>{% block title %}{% endblock %} - Chalmers Surveys</title>
 </head>
@@ -30,5 +33,14 @@
     <section class="content">
         {% block content %}{% endblock %}
     </section>
+
+    <footer>
+        <p>
+            <img class="chalmers_logo" src="{{url_for('static', filename='chalmers_logo.png')}}" alt="">
+            <br>
+            Website (except survey data) by Jacob Garby, open source on 
+            <a href="https://github.com/j4cobgarby/GenericSurvey/">GitHub</a>.
+        </p>
+    </footer>
 </body>
 </html>

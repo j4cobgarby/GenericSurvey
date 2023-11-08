@@ -105,11 +105,11 @@ Create Survey
     <p>Get started by using the buttons below to add new questions to the survey!</p>
 
     <form action="" method="post" name="form_mksurvey" class="make_survey">
-        <label for="survey_title">Survey Title</label><br>
+        <label class="white" for="survey_title">Survey Title</label><br>
         <input type="text" name="survey_title" id="survey_title">
         <input type="hidden" name="num_questions" id="num_questions">
         <br>
-        <label for="survey_descr">Description</label><br>
+        <label class="white" for="survey_descr">Description</label><br>
         <textarea name="survey_descr" id="survey_descr" cols="40" rows="5" placeholder="E.g. Who is running the survey? What will the results be used for? How long will the survey run for? Are the results anonymous?"></textarea>
         <br>
         <button type="button" onclick="add_radio()">Add radio field</button>
@@ -119,9 +119,8 @@ Create Survey
             <!-- Populated by script -->
         </fieldset>
         <hr>
-        <button type="submit" 
-            onclick="document.getElementById('num_questions').value = position;">
-            Done!
-        </button>
+        <input type="submit" 
+            onclick="document.getElementById('num_questions').value = position;" value="Done!">
+            
     </form>
 {% endblock %}

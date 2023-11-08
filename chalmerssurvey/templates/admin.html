@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Admin
+{% endblock %}
+
+{% block content %}
+<h1>Admin Panel</h1>
+<button class="link_btn" onclick="location.href='/'">Home</button>
+<button class="link_btn" onclick="location.href='/s/new'">New Survey</button>
+<button class="link_btn" onclick="location.href='/results'">View Survey Results</button>
+<button class="link_btn" onclick="location.href='/logout'">Log Out</button>
+{% endblock %}

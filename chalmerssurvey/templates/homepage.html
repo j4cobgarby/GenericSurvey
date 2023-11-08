@@ -8,9 +8,7 @@ Home
 {% block content %}
 <h1>Available Surveys</h1>
 
-<ul>
-    {% for s in surveys %}
-        <li><a href="s/{{s['id']}}">{{s['title']}}</a></li>
-    {% endfor %}
-</ul>
+{% for s in surveys %}
+    <button class="link_btn" onclick="location.href='s/{{s['id']}}'">{{s['title']}}</button>
+{% endfor %}
 {% endblock %}
