@@ -37,13 +37,13 @@ CREATE TABLE responses (
 CREATE TABLE last_response_set (id INTEGER);
 
 INSERT INTO last_response_set (id) VALUES (0);
-INSERT INTO surveys (title, descr) VALUES ('My Cool Survey', 'This is just a test...');
+INSERT INTO surveys (title, descr) VALUES ('Test Survey 1', 'This is the description of the survey. You can write anything here that you want!');
 INSERT INTO questions (in_survey, position, title, descr, qtype, radio_options)
-    VALUES (1, 0, 'What''s your favourite fruit?', 'Or vegetable...', 'RADIO', 'Apple;Banana;Cauliflower');
+    VALUES (1, 0, 'What''s your favourite of these foods?', 'Or vegetable...', 'RADIO', 'Apple;Banana;Cauliflower;Potato;Chips');
 INSERT INTO questions (in_survey, position, title, descr, qtype)
     VALUES (1, 1, 'What''s your name?', 'First and last!', 'STRING');
 INSERT INTO questions (in_survey, position, title, descr, qtype, integer_lb, integer_ub)
     VALUES (1, -1, 'How old are you?', 'In years.', 'INTEGER', 0, 150);
-INSERT INTO surveys (title, descr) VALUES ('Another Survey', 'For some new information!');
+INSERT INTO surveys (title, descr) VALUES ('Another Survey', 'This survey is a bit shorter than the other one...');
 INSERT INTO questions (in_survey, position, title, descr, qtype, radio_options)
-    VALUES (2, 0, 'How much do you like this survey?', 'It''s okay, you can tell us.', 'RADIO', 'Not at all;It''s okay;What''s a survey?;I''ve never known anything to be as enjoyable!');
+    VALUES (2, 0, 'How much do you like this survey?', 'It''s okay, you can tell us.', 'RADIO', 'Not at all;It''s okay;Somewhat;Very fun!');
