@@ -21,7 +21,7 @@
                 </div>
             {% elif q['qtype'] == 'INTEGER' %}
                 <div class="survey_field">
-                    <label for="q{{q['id']}}">{{q['title']}}</label>
+                    <label for="q{{q['id']}}">{{q['title']}}</label><br>
                     <input type="number" id="q{{q['id']}}" name="{{q['id']}}"
                     {% if q['integer_lb'] != None %}
                         min="{{q['integer_lb']}}"
@@ -33,7 +33,7 @@
                 </div>
             {% elif q['qtype'] == 'STRING' %}
                 <div class="survey_field">
-                    <label for="q{{q['id']}}">{{q['title']}}</label>
+                    <label for="q{{q['id']}}">{{q['title']}}</label><br>
                     <input type="text" id="q{{q['id']}}" name="{{q['id']}}">
                 </div>
             {% endif %}
